@@ -10,6 +10,9 @@
 *.env
 application-local.properties
 application-secret.properties
+run-backend.bat
+run-frontend.bat
+backend/run-backend.bat
 
 # ------------------------------------------
 # Backend - Maven & Java build artifacts
