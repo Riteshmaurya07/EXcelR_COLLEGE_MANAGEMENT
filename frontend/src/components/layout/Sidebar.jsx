@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, onClose }) => {
   const { role } = useAuth();
 
   const adminLinks = [
@@ -38,12 +38,22 @@ const Sidebar = () => {
   else if (role === 'STUDENT') links = studentLinks;
 
   return (
-    <aside className="sidebar-nav d-flex flex-column">
-      <div className="p-3 border-bottom" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
-        <div className="fw-bold text-white fs-6">Sunrise Institute</div>
-        <div className="text-white-50" style={{ fontSize: '11px', letterSpacing: '0.5px' }}>
-          COLLEGE MANAGEMENT
+    <aside className={`sidebar-nav d-flex flex-column ${isOpen ? 'mobile-open' : ''}`}>
+      <div className="p-3 border-bottom d-flex justify-content-between align-items-center" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+        <div>
+          <div className="fw-bold text-white fs-6">Sunrise Institute</div>
+          <div className="text-white-50" style={{ fontSize: '11px', letterSpacing: '0.5px' }}>
+            COLLEGE MANAGEMENT
+          </div>
         </div>
+        {/* Mobile close button */}
+        <button
+          type="button"
+          className="btn-close btn-close-white d-lg-none"
+          onClick={onClose}
+          aria-label="Close menu"
+          style={{ fontSize: '11px' }}
+        />
       </div>
       <div className="p-2 flex-grow-1">
         <ul className="nav flex-column gap-1">
@@ -51,6 +61,7 @@ const Sidebar = () => {
             <li className="nav-item" key={link.to}>
               <NavLink
                 to={link.to}
+                onClick={onClose}
                 className={({ isActive }) =>
                   `nav-link px-3 py-2 rounded text-white ${
                     isActive ? 'fw-semibold' : 'text-white-50'
