@@ -153,9 +153,9 @@ To enable real Google Sign-In with Google's account chooser:
 
 | Role | Email | Password | Details |
 |---|---|---|---|
-| **Administrator** | `admin@college.edu` | (see local .env / ask admin) | Sunrise Admin — System stats, student roster, faculty assignments, session & holiday calendars |
-| **Faculty** | `anjali.sharma@college.edu` | (see local .env / ask admin) | Dr. Anjali Sharma (HOD & Professor, CSE), instructor for CS301 |
-| **Student** | `aarav.sharma@student.college.edu` | (see local .env / ask admin) | Aarav Sharma (CSE-2023-001, Semester 5, CSE) |
+| **Administrator** | `admin@college.edu` | `Admin@123` | Sunrise Admin — System stats, student roster, faculty assignments, session & holiday calendars |
+| **Faculty** | `anjali.sharma@college.edu` | `Faculty@123` | Dr. Anjali Sharma (HOD & Professor, CSE), instructor for CS301 |
+| **Student** | `aarav.sharma@student.college.edu` | `Student@123` | Aarav Sharma (CSE-2023-001, Semester 5, CSE) |
 
 ---
 
