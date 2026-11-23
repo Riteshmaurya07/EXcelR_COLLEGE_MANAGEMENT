@@ -44,9 +44,12 @@ public class CollegeCmsApplication {
             Environment env = context.getEnvironment();
             String dbPassword = env.getProperty("spring.datasource.password");
             String jwtSecret = env.getProperty("app.jwt.secret");
+            String dbUrl = env.getProperty("spring.datasource.url");
 
-            if (dbPassword == null || dbPassword.trim().isEmpty() ||
-                jwtSecret == null || jwtSecret.trim().isEmpty()) {
+            boolean hasDbPassword = (dbPassword != null && !dbPassword.trim().isEmpty())
+                || (dbUrl != null && dbUrl.contains(":") && dbUrl.contains("@"));
+
+            if (!hasDbPassword || jwtSecret == null || jwtSecret.trim().isEmpty()) {
                 throw new IllegalStateException("Missing required env var DB_PASSWORD / APP_JWT_SECRET — see README");
             }
         });
