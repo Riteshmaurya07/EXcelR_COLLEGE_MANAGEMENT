@@ -17,6 +17,8 @@ target/
 !.env.example
 application-local.properties
 application-secret.properties
+run-backend.bat
+run-backend.ps1
 
 # Logs
 logs/
